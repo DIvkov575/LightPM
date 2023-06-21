@@ -1,6 +1,19 @@
 import './signup.scss';
 import {useState} from 'react';
+import { useNavigate } from "react-router";
 
+
+// TODO: 
+// - hash pass
+// - check if reccord already exists
+// - create redirect to login page -> implement routing
+//
+//
+//
+
+
+
+// const navigate = useNavigate();
 
 function Signup() {
   const [name, setName] = useState('');
@@ -12,6 +25,9 @@ function Signup() {
   const handleEmailChange = (e) => { setEmail(e.target.value); }
   const handlePassword1Change = (e) => { setPassword1(e.target.value); }
   const handlePassword2Change = (e) => { setPassword2(e.target.value); }
+
+
+
 
   async function submit(e) {
     e.preventDefault();
@@ -25,23 +41,34 @@ function Signup() {
       alert("password must be more than 1 character long"); return;
     }
 
-    if (password1 != password2) {
+    if (password1 !== password2) {
       alert("passwords do not match"); return;
     }
-    
+  
+    // creates object to be stringified
+    // TODO: hash password before upload
+   let newUser = {
+    name:name,
+    email: email,
+    password:password1, 
+   } 
+
+
+
     console.log("posting1");
-    // await fetch(window.location.href)
+    // creates a post call to url -> our db is listening there
+    // ie uploads to db
     await fetch("http://localhost:5000/record/add", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPerson),
+      body: JSON.stringify(newUser),
     }).catch(error => {
      window.alert(error);
      return;
    });
-     console.log("posting2");
+   console.log("posting2");
   }
 
   return (

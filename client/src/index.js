@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './home/App';
-import Signup from './signup/signup';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from 'react-router-dom'
+
+import './index.css';
+import Home from './home/Home';
+import Signup from './signup/Signup';
+import Login from './login/Login';
+import Profile from './profile/Profile'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <BrowserRouter>
     <Signup />
+    {/* <App /> */}
+    </BrowserRouter>
   </React.StrictMode>
 );
 

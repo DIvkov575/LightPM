@@ -1,0 +1,33 @@
+#form {
+    margin: auto;
+    display:flex;
+    flex-flow: column wrap; 
+    max-width: 750px;
+    border: 1px solid black;
+    padding:15px;
+    padding-top:5px;
+    margin-top:15px;
+    h4 {
+        font-size: 40px;
+        margin:3px;
+    }
+    input {
+        flex-grow: 1;
+        margin:10px;
+        padding:5px;
+        height:30px;
+    }
+    button {
+        margin: 10px;
+        height: 40px;
+        width: 400px;
+    }
+    div {
+        display:flex;
+        flex-flow: row;
+        align-items: center;
+        p {
+            margin-right: 4px;
+        }
+    }
+}
