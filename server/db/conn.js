@@ -1,26 +1,28 @@
-const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
-const client = new MongoClient(Db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+let _db;
+const uri = "mongodb+srv://dmitriy:dmitriy@cluster0.9rkmb3y.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
 });
- 
-var _db;
- 
 module.exports = {
-  connectToServer: function (callback) {
-    client.connect(function (err, db) {
-      // Verify we got a good "db" object
-      if (db)
-      {
-        _db = db.db("employees");
-        console.log("Successfully connected to MongoDB."); 
-      }
-      return callback(err);
-         });
+  connectToServer: async function() {
+    try {
+      await client.connect();
+      _db = await client.db("EAT");
+      _db.command({ping:1});
+      console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    } catch (e) {
+      console.log(e);
+    }
   },
- 
-  getDb: function () {
+  getDb: function() {
     return _db;
-  },
-};
+  }
+}

@@ -1,6 +1,7 @@
 import './signup.scss';
 import {useState} from 'react';
 import { useNavigate } from "react-router";
+import {md5} from 'hash-wasm';
 
 
 // TODO: 
@@ -41,24 +42,23 @@ function Signup() {
       alert("password must be more than 1 character long"); return;
     }
 
-    if (password1 !== password2) {
-      alert("passwords do not match"); return;
-    }
+    // if (password1 !== password2) {
+      // alert("passwords do not match"); return;
+    // }
   
     // creates object to be stringified
     // TODO: hash password before upload
    let newUser = {
     name:name,
     email: email,
-    password:password1, 
+    password: await md5(password1), 
    } 
 
 
 
-    console.log("posting1");
     // creates a post call to url -> our db is listening there
     // ie uploads to db
-    await fetch("http://localhost:5000/record/add", {
+    await fetch("http://localhost:3009/record/add", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,6 @@ function Signup() {
      window.alert(error);
      return;
    });
-   console.log("posting2");
   }
 
   return (

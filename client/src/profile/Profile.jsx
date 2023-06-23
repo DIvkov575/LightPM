@@ -2,7 +2,6 @@
 import './profile.scss';
 import {useState} from 'react';
 
-
 // TODO: 
 // - hash pass
 // - check if reccord already exists
@@ -25,6 +24,11 @@ function Profile() {
     TOOD:
     - carousel all listings
     - clikc on listing -> listing display page
+    - notifications / messages
+    - linked accounts + link more
+    - 
+    
+        
 
      
      */}

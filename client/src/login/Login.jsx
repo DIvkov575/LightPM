@@ -1,7 +1,7 @@
 
 import './login.scss';
 import {useState} from 'react';
-
+import {md5} from 'hash-wasm';
 
 // TODO: 
 // - hash pass
@@ -16,17 +16,22 @@ import {useState} from 'react';
 
 
 function Login() {
+  // TODO: all 'useState's' can be combined to track form + in signup form
+  // used to track state of diferent fields
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+
+  // used to update state of form 
   const handleEmailChange = (e) => { setEmail(e.target.value); }
   const handlePasswordChange = (e) => { setPassword(e.target.value); }
+  
 
+  // await md5 w/ import above used to get md5 hash of passowrd
   async function submit(e) {
     e.preventDefault();
     let user = {
         email: email,
-        password:password, 
+        password: await md5(password), 
     } 
 
 
