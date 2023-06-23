@@ -7,7 +7,7 @@ import './index.css';
 import Home from './home/Home';
 import Signup from './signup/Signup';
 import Login from './login/Login';
-import Profile from './profile/Profile'
+import Profile from './profile/Profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

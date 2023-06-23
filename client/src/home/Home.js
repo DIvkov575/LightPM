@@ -22,4 +22,13 @@ function App() {
   );
 }
 
+// async function a() {
+//   let db = await getDatabase();
+//   db.getmyinfo()
+// }
+
+// const a = (param1) => {
+// con
+// }
+
 export default App;
