@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import './index.css';
 import Home from './home/Home';
@@ -13,8 +13,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Signup />
-    {/* <App /> */}
+        <Routes>
+            <Route path={"/"} element={<Home />}/>
+            <Route path={"/signup"} element={<Signup/>}/>
+            <Route path={"/login"} element={<Login />}/>
+            <Route path={"/profile"} element={<Profile/>}/>
+        </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
