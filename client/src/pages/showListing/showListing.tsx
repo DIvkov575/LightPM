@@ -1,9 +1,11 @@
 import './showListing.scss'
+import {useParams} from "react-router";
 
-function showListing() {
+function ShowListing() {
+    const {id} = useParams();
     return (
         <div>
-
+        <h1>{id}</h1>
                     {/*
                     TODO:
                     - images (big + carousel underneath)
@@ -24,3 +26,6 @@ function showListing() {
 
     )
 }
+
+
+export default ShowListing;

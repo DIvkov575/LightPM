@@ -17,6 +17,7 @@ import React, {useEffect, useState} from 'react';
 // }
     //
 interface boxProp {
+    id: number,
     name: string,
     location: string,
     airbnbLink?: string,
@@ -28,10 +29,10 @@ interface SettingOptionProp {
     value: string,
 }
 
-const a = () => {
-    console.log("click");
-}
 const Box: React.FC<boxProp> = (props) => {
+    const a = () => {
+        console.log("id" + props.id);
+    }
     return (
         <div className={"stdBox"} onClick={a}>
             <h4>{props.name}</h4>
