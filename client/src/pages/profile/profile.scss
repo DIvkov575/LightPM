@@ -1,0 +1,44 @@
+$std_h1: 150px;
+$std_w1: 200px;
+$blue1: rgb(50,150,200);
+$blue2: rgb(150,255,255);
+#profile {
+  button {
+    font-size:50px;
+
+  }
+}
+.stdBox {
+  height: $std_h1;
+  width: $std_w1;
+  //flex-grow:1;
+  //min-width: 175px;
+  //max-width:225px;
+  margin: 5px;
+  padding:10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.wrapper {
+  margin: 10px;
+  border: 1px solid black;
+  background-color: #dddddd;
+  padding:10px;
+}
+
+.propertiesWrapper {
+  @extend .wrapper;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  #newProperty {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    font-size:100px;
+    background-color: $blue1;
+  }
+}
+

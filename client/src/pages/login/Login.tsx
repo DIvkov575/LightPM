@@ -1,18 +1,6 @@
-
 import './login.scss';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {md5} from 'hash-wasm';
-
-// TODO: 
-// - hash pass
-// - check if reccord already exists
-// - create redirect to login page -> implement routing
-//
-//
-//
-
-
-
 
 
 function Login() {
@@ -21,33 +9,41 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // used to update state of form 
-  const handleEmailChange = (e) => { setEmail(e.target.value); }
-  const handlePasswordChange = (e) => { setPassword(e.target.value); }
-  
+  // used to update state of form
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => { setEmail(e.target.value); }
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => { setPassword(e.target.value); }
 
   // await md5 w/ import above used to get md5 hash of passowrd
-  async function submit(e) {
+  async function submit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     let user = {
         email: email,
         password: await md5(password), 
-    } 
-
-
-
-    console.log("posting1");
-    await fetch("http://localhost:5000/record/add", {
+    }
+    let user_data : {[key: string]: any }= {};
+    console.log(user);
+    await fetch(
+        "http://localhost:3009/record/verifyLogin", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    }).catch(error => {
-     window.alert(error);
-     return;
-   });
-   console.log("posting2");
+        })
+        .then( response=> response.json())
+        .then(jsonData => { console.log(jsonData); user_data = jsonData; })
+        .catch(error => { window.alert(error) });
+
+
+      // for (const key in user_data['content']) {
+      //     sessionStorage.setItem(key, user_data['content'][key]);
+      // }
+        sessionStorage.setItem('email',user_data['email']);
+        sessionStorage.setItem('name',user_data['name']);
+        sessionStorage.setItem('content',JSON.stringify(user_data['content']));
+        sessionStorage.setItem('properties',JSON.stringify(user_data['properties']));
+
+
   }
 
   return (
