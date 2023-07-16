@@ -1,0 +1,32 @@
+$std_h1: 150px;
+$std_w1: 200px;
+$blue1: rgb(50,150,200);
+$blue2: rgb(150,255,255);
+$white1: #eee;
+
+.b1 {
+  border: 3px solid grey;
+  color: white;
+  background: transparent;
+  border-radius: 25px;
+  font-weight: 800;
+  font-size: 20px;
+  margin: auto;
+  &:hover {
+    color: black;
+    background:white;
+  }
+}
+.b2 {
+  border: 3px solid black;
+  color: black;
+  background: transparent;
+  border-radius: 25px;
+  font-weight: 800;
+  font-size: 20px;
+  margin: auto;
+  &:hover {
+    color: white;
+    background:black;
+  }
+}

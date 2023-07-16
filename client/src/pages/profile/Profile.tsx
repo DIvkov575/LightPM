@@ -14,7 +14,7 @@ function Profile() {
              <h1>Properties</h1>
              {props.length < 3 &&
              <div className={"propertiesWrapper"}>
-                 <div className={"stdBox"} id={"newProperty"}>+</div>
+                 <Link to={"/newListing"}><div className={"stdBox"} id={"newProperty"}>+</div></Link>
                  {props.map((elem) => ( <Link to={"/listing/"+elem.id}><Box {...elem} /></Link> ))}
              </div>
             }

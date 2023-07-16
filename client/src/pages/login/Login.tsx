@@ -1,11 +1,12 @@
 import './login.scss';
 import React, {useState} from 'react';
 import {md5} from 'hash-wasm';
+import {Link} from "react-router-dom";
 
 
 function Login() {
   // TODO: all 'useState's' can be combined to track form + in signup form
-  // used to track state of diferent fields
+  // used to track state of different fields
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -34,15 +35,12 @@ function Login() {
         .then(jsonData => { console.log(jsonData); user_data = jsonData; })
         .catch(error => { window.alert(error) });
 
-
-      // for (const key in user_data['content']) {
-      //     sessionStorage.setItem(key, user_data['content'][key]);
-      // }
         sessionStorage.setItem('email',user_data['email']);
         sessionStorage.setItem('name',user_data['name']);
         sessionStorage.setItem('content',JSON.stringify(user_data['content']));
         sessionStorage.setItem('properties',JSON.stringify(user_data['properties']));
 
+        window.open("profile")
 
   }
 

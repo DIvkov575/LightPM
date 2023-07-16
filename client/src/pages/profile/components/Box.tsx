@@ -9,7 +9,6 @@ export interface boxProp {
     CoverImage?: any,
 }
 
-
 export const Box: React.FC<boxProp> = (props) => {
     return (
         <div className={"stdBox"}>

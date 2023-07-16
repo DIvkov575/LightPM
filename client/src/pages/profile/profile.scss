@@ -1,7 +1,6 @@
-$std_h1: 150px;
-$std_w1: 200px;
-$blue1: rgb(50,150,200);
-$blue2: rgb(150,255,255);
+@use '../../vars';
+
+
 #profile {
   button {
     font-size:50px;
@@ -9,8 +8,8 @@ $blue2: rgb(150,255,255);
   }
 }
 .stdBox {
-  height: $std_h1;
-  width: $std_w1;
+  height: vars.$std_h1;
+  width: vars.$std_w1;
   //flex-grow:1;
   //min-width: 175px;
   //max-width:225px;
@@ -38,7 +37,7 @@ $blue2: rgb(150,255,255);
     justify-content:center;
     align-items: center;
     font-size:100px;
-    background-color: $blue1;
+    background-color: vars.$blue1;
   }
 }
 

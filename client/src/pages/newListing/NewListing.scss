@@ -1,0 +1,18 @@
+@use '../../vars';
+
+#button1 {
+  background-color: vars.$blue1;
+  border-radius: 5px;
+  width:100px;
+  height:50px;
+  font-size:75px;
+  border: solid;
+  //padding: 0px;
+}
+
+#propWrap {
+  input {
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}

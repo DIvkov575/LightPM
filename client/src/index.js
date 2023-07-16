@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-import './index.css';
+import './index.scss';
 import Home from './pages/home/Home';
 import Signup from './pages/signup/Signup';
 import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
+import NewListing from './pages/newListing/NewListing';
 import ShowListing from './pages/showListing/showListing';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,7 @@ root.render(
             <Route path={"/signup"} element={<Signup/>}/>
             <Route path={"/login"} element={<Login />}/>
             <Route path={"/profile"} element={<Profile/>}/>
+            <Route path={"/newListing"} element={<NewListing/>}/>
             <Route path={"/listing/:id"} element={<ShowListing />}/>
         </Routes>
     </BrowserRouter>
