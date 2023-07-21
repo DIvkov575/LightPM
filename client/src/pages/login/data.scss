@@ -1,13 +1,19 @@
 @use '../../vars';
 
-#signup-form {
-    margin: 50px auto 0px;
+html {
+    //background-color: vars.$white1;
+    //background-color: white;
+}
+
+#login-form {
+    margin: 30px auto 0px;
     display:flex;
-    flex-flow: column wrap;
+    flex-flow: column wrap; 
     max-width: 750px;
     padding: 5px 15px 15px;
     border: 3px solid black;
     border-radius: 15px;
+    //background: linear-gradient(45deg, #303030, #505050);
     h4 {
         font-size: 40px;
         margin:3px;

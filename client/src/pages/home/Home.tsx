@@ -21,9 +21,9 @@ function Home() {
             <h2>Synchronize Reservations across all platforms</h2>
             <h2>Aggregate Notifications from all platforms</h2>
             <h2>Easily import listings</h2>
-            <div style={{ position: "relative", display: "flex", justifyContent: "center", marginTop: "25px"}}>
+            <div id={"airbnb-vrbo-wrapper"}>
                 <h2 style={{margin: "0px", marginTop: "10px"}}><u>Compatible With</u></h2>
-                <div style={{position:"absolute",top:"10px", display: "flex", justifyContent:"center", alignItems: "center"}}>
+                <div style={{position:"absolute",top:"10px", display: "flex", justifyContent:"center", alignItems: "center",}}>
                     <img style={{height:"45px"}} src={process.env.PUBLIC_URL + '/airbnb.png'} alt="Airbnb Icon"/>
                     <img style={{height:"100px"}} src={process.env.PUBLIC_URL + '/vrbo.webp'} alt="Vrbo Icon"/>
                 </div>

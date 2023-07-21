@@ -55,6 +55,17 @@ h3 {
   img {
     //height:50px;
   }
+  #airbnb-vrbo-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    //border: 3px solid black;
+    //border-radius: 15px;
+    //max-width: 00px;
+    width: 90%;
+    padding-bottom: 55px;
+  }
 }
 
 #d3-wrapper {

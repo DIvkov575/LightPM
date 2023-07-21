@@ -12,18 +12,21 @@ async function isEmailValid(email) {
 
 
 // create a new account
-recordRoutes.route("/record/add").post(async function (req, response) {
+recordRoutes.route("/record/add").post(async (req, response) => {
     let db_connect = dbo.getDb();
     let emailExists = await db_connect.collection("records").findOne({email: req.body.email});
     let emailValid = await isEmailValid(req.body.email);
 
     // checks if email exists in db
     if (emailExists !== null) {
-        response.status(400).json({message: "email exists"});
+        // response.json({errorMessage: "email exists"});
+        response.send({errorMessage: "email exists"});
         console.log("womp womp . . . 🥲 email exists");
 
     // checks if email is valid ie regex
-    } else if (!emailValid.valid) { console.log("email invalid 🥲");
+    } else if (!emailValid.valid) {
+        response.send({errorMessage: "email invalid"});
+        console.log("email invalid 🥲");
 
     // creates new account
     } else {
@@ -52,6 +55,7 @@ recordRoutes.route("/record/add").post(async function (req, response) {
             if (err) throw err;
             response.json(res);
         });
+        response.send({message: "Account created"})
     }
 });
 
@@ -64,15 +68,18 @@ recordRoutes.route("/record/verifyLogin").post(async (req, res) => {
     if (account === null) {
         res.json({errorMessage: "email not found"});
         console.log("email not found");
-
-        // check if password is correct
+    // incorrect password
+    } else if (req.body.password !== account.password) {
+        res.json({errorMessage:"incorrect password"})
+        console.log("incorrect password")
+    // incorrect password
     } else if (req.body.password === account.password) {
         res.json(account);
         console.log("successful login: " + req.body.email);
-
+    // else
     } else {
-        // res.json()
-        console.log('error with login: likely to be password');
+        res.json("unknown error has occurred")
+        console.log('unknown error has occurred');
     }
 })
 
