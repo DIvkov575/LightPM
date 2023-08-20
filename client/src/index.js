@@ -10,6 +10,8 @@ import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import NewListing from './pages/newListing/NewListing';
 import ShowListing from './pages/showListing/showListing';
+import Contact from "./pages/contact/Contact";
+import SettingsPage from "./pages/settingsPage/SettingsPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +23,7 @@ root.render(
             <Route path={"/login"} element={<Login />}/>
             <Route path={"/profile"} element={<Profile/>}/>
             <Route path={"/newListing"} element={<NewListing/>}/>
+            <Route path={"/settings"} element={<SettingsPage/>}/>
             <Route path={"/listing/:id"} element={<ShowListing />}/>
         </Routes>
     </BrowserRouter>

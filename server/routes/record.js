@@ -4,7 +4,17 @@ const recordRoutes = express.Router();
 const dbo = require("../db/conn");
 const emailValidator = require('deep-email-validator');
 const ObjectId = require("mongodb").ObjectId;
+const nodemailer = require("nodemailer");
 
+
+
+const transporter = nodemailer.createTransport({
+    service: 'hotmail',
+    auth: {
+        user: process.env["usr"],
+        pass: process.env["pass"],
+    },
+})
 
 async function isEmailValid(email) {
     return emailValidator.validate({email: email, validateSMTP: false})
@@ -83,11 +93,32 @@ recordRoutes.route("/record/verifyLogin").post(async (req, res) => {
     }
 })
 
+//
 recordRoutes.route("/listing/getData").post(async (req, res) => {
     let db_connect = dbo.getDb();
     let account = await db_connect.collection("records").findOne({email: req.body.email});
 
 })
 
+// handle contact form submission
+recordRoutes.route("/contact").post(async (req, res) => {
+    let date = (new Date()).toString();
+    let input = req.body + ', ' + date.toString();
+    console.log(input)
+
+    const options = {
+        from: process.env["usr"],
+        to: process.env["usr_receiving"],
+        subject: "(LIGHTPMS) Contact Form Filled",
+        text: input
+    }
+    transporter.sendMail(options, (err, info) => {
+        if (err) {console.log(err.message); return;}
+    })
+})
+// Serve Website
+recordRoutes.route("/").get((req, res) => {
+    res.sendFile(__dirname + '../../client/build/index.html')
+})
 
 module.exports = recordRoutes;

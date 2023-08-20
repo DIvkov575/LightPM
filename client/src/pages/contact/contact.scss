@@ -1,0 +1,52 @@
+@use '../../vars';
+
+html {
+}
+
+form {
+    margin: 50px auto 50px auto;
+    display:flex;
+    flex-flow: column;
+    max-width:1200px;
+    border-radius: 15px;
+    background: rgba(50, 50, 50, 0.75);
+    display:flex;
+    flex-flow: column wrap;
+    h3 {
+        color: vars.$white1;
+        font-size: 60px;
+        margin:20px 50px 10px;
+        @media (max-width: 500px) {
+            margin: 10px auto auto;
+        }
+    }
+    input {
+        flex-grow: 1;
+        margin:10px;
+        padding:5px;
+        height:30px;
+        background-color: vars.$white1;
+        border-radius: 25px;
+        color: vars.$black1;
+        &::placeholder {
+            color: vars.$black1;
+        }
+    }
+    input:nth-child(4) {
+        height: 60px !important;
+
+    }
+    button {
+        @extend .b2;
+        height: 40px;
+        width: 200px;
+        background-color: vars.$white1;
+        border-radius:15px;
+        border: none;
+        margin: 10px 55px 25px;
+        color: vars.$black1;
+        @media (max-width: 500px) {
+            margin: 10px auto 25px auto;
+        }
+    }
+}

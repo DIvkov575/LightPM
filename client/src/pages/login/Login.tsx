@@ -1,4 +1,4 @@
-import './data.scss';
+import './login.scss';
 import React, {useState} from 'react';
 import {md5} from 'hash-wasm';
 import {Link} from "react-router-dom";

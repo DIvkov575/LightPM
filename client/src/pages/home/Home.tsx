@@ -1,7 +1,10 @@
 import logo from './logo.svg';
+
 import './home.scss';
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
+import {Link} from "react-router-dom";
+import Contact from "../contact/Contact";
 
 function Home() {
   return (
@@ -30,19 +33,24 @@ function Home() {
             </div>
         </div>
         <div id={"d3-wrapper"}>
-            <h1 style={{color: "black"}} className={"heading-1"}>Pricing</h1>
+            <h1 style={{color: "white", marginBottom: "30px"}} className={"heading-1"}>Pricing</h1>
             <div className={"just-for-centering"} style={{alignItems: "center"}}>
-                <div className={"d3"}>
-                    <img style={{width: "200px", margin: "0 auto"}} src={process.env.PUBLIC_URL + "/home-icon.png"} alt="Home Icon"/>
-                    <h2 style={{top: "175px"}}>{"≤ 10 properties"}</h2>
-                    <h2 style={{top: "205px"}} >$10/property/month</h2>
-                    <button style={{ marginBottom: "18px"}} className={"b2"}>Register</button>
-                </div>
-                <div className={"d3"}>
-                    <img style={{width: "185px", margin: "0 auto"}} src={process.env.PUBLIC_URL + "/multiple-homes-icon.svg"} alt="Home Icon"/>
-                    <h2 style={{top: "175px"}}>{"≥ 10 properties"}</h2>
-                    <button className={"b2"}>Contact</button>
-                </div>
+                <Link to={"signup"} style={{textDecoration: "none"}}>
+                    <div className={"d3"}>
+                        <img style={{width: "200px", margin: "0 auto"}} src={process.env.PUBLIC_URL + "/home-icon.png"} alt="Home Icon"/>
+                        <h2 style={{top: "175px"}}>{"≤ 10 properties"}</h2>
+                        <h2 style={{top: "205px"}} >$10/property/month</h2>
+                        <button  className={"b2"}>Register</button>
+                    </div>
+                </Link>
+
+                <button style={{backgroundColor: "transparent", border:'none'}} onClick={() => {let elem = document.getElementById("d4") as HTMLElement; elem.scrollIntoView({behavior: "smooth"})}}>
+                    <div className={"d3"} >
+                        <img style={{width: "185px", margin: "0 auto"}} src={process.env.PUBLIC_URL + "/multiple-homes-icon.svg"} alt="Home Icon"/>
+                        <h2 style={{top: "175px"}}>{"≥ 10 properties"}</h2>
+                        <button style={{ marginBottom: "34px"}} className={"b2"}>Contact</button>
+                    </div>
+                </button>
             </div>
         </div>
         <div id={"d4"}>
@@ -51,14 +59,7 @@ function Home() {
                 <h2>LightPMS was founded and is currently run by two passionate technical founders in boston. Our small team should assure you that you will get the utmost attention with fast and reliable responses</h2>
                 <h2>LightPMS is still a very young product and has limited features. However we assure you that our reservation synchronization and notification aggregation will be of the highest quality.</h2>
             </div>
-            <form action="">
-                <h1 className={"heading-1"}>Contact</h1>
-                <input type="text" placeholder={"Name"}/>
-                <input type="text" placeholder={"Email"}/>
-                <input type="text" placeholder={"Subject"}/>
-                <input type="text" placeholder={"Content"} id={"content"}/>
-                <input type="submit"/>
-            </form>
+            <Contact />
         </div>
         <Footer />
     </div>
