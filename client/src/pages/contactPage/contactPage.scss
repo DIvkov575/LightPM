@@ -3,19 +3,18 @@
 html {
 }
 
-form {
+#contact-page{
     margin: 50px auto 50px auto;
     display:flex;
     flex-flow: column;
     max-width:1200px;
     border-radius: 15px;
-    background: rgba(50, 50, 50, 0.75);
     display:flex;
     flex-flow: column wrap;
     h3 {
-        color: vars.$white1;
+        color: vars.$black1;
         font-size: 60px;
-        margin:20px 50px 10px;
+        margin:20px 10px 10px;
         @media (max-width: 500px) {
             margin: 10px auto auto;
         }
@@ -25,14 +24,15 @@ form {
         margin:10px;
         padding:5px;
         height:30px;
-        background-color: vars.$white1;
-        border-radius: 25px;
+        max-width: 600px;
+        border-radius: 15px;
         color: vars.$black1;
         &::placeholder {
             color: vars.$black1;
         }
     }
     input:nth-child(4) {
+        max-width: 1200px;
         height: 60px !important;
 
     }
@@ -40,13 +40,6 @@ form {
         @extend .b2;
         height: 40px;
         width: 200px;
-        background-color: vars.$white1;
-        border-radius:15px;
-        border: none;
-        margin: 10px 55px 25px;
-        color: vars.$black1;
-        @media (max-width: 500px) {
-            margin: 10px auto 25px auto;
-        }
+        margin: 10px 10px 15px;
     }
 }

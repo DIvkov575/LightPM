@@ -4,7 +4,7 @@ import './home.scss';
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
 import {Link} from "react-router-dom";
-import Contact from "../contact/Contact";
+import ContactForm from "../../components/ContactForm/ContactForm";
 
 function Home() {
   return (
@@ -15,7 +15,9 @@ function Home() {
                 <h1 className={"heading-1"}>Find peace of Mind</h1>
                 <h1 className={"heading-2"}>lightPMS</h1>
                 <div style={{marginTop: "25px"}} className={"just-for-centering"}>
-                    <button style={{width:"200px", height:"50px" }} className={"b1"} >Get Started</button>
+                    <Link to={"/signup"}>
+                        <button style={{width:"200px", height:"50px" }} className={"b1"} >Get Started</button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -59,20 +61,12 @@ function Home() {
                 <h2>LightPMS was founded and is currently run by two passionate technical founders in boston. Our small team should assure you that you will get the utmost attention with fast and reliable responses</h2>
                 <h2>LightPMS is still a very young product and has limited features. However we assure you that our reservation synchronization and notification aggregation will be of the highest quality.</h2>
             </div>
-            <Contact />
+            <ContactForm />
+
         </div>
         <Footer />
     </div>
   );
 }
-
-// async function a() {
-//   let db = await getDatabase();
-//   db.getmyinfo()
-// }
-
-// const a = (param1) => {
-// con
-// }
 
 export default Home;

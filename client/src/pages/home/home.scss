@@ -133,40 +133,6 @@ h3 {
     max-width: 1200px;
     margin:auto;
   }
-  form {
-    margin: 50px auto 50px auto;
-    display: flex;
-    flex-flow: column;
-    background: rgba(50, 50, 50, 0.75);
-    max-width:1200px;
-    border-radius: 10px;
-    //padding-bottom: 25px;
-    input {
-      width:90%;
-      max-width: 1000px;
-      height:30px;
-      border-radius: 5px;
-      font-size:20px;
-      margin: 5px auto;
-    }
-    input[type=submit] {
-      width:200px;
-      border: 3px solid grey;
-      color: white;
-      background: transparent;
-      border-radius: 25px;
-      font-weight: 800;
-      font-size: 20px;
-      margin: 25px auto;
-      &:hover {
-        color: black;
-        background:white;
-      }
-    }
-    #content {
-      height: 100px;
-    }
-  }
 }
 
 .heading-1 {

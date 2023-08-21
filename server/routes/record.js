@@ -21,6 +21,9 @@ async function isEmailValid(email) {
 }
 
 
+recordRoutes.route("/newListing").post(async (req, response) => {
+    response.send({message: "invalid user status"})
+});
 // create a new account
 recordRoutes.route("/record/add").post(async (req, response) => {
     let db_connect = dbo.getDb();
@@ -45,6 +48,7 @@ recordRoutes.route("/record/add").post(async (req, response) => {
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
+            status: 0,
             content: {
                 AirbnbEmail: "",
                 AirbnbPass: "",
@@ -93,15 +97,14 @@ recordRoutes.route("/record/verifyLogin").post(async (req, res) => {
     }
 })
 
-//
 recordRoutes.route("/listing/getData").post(async (req, res) => {
     let db_connect = dbo.getDb();
     let account = await db_connect.collection("records").findOne({email: req.body.email});
 
 })
 
-// handle contact form submission
-recordRoutes.route("/contact").post(async (req, res) => {
+// handle contactPage form submission
+recordRoutes.route("/contactPage").post(async (req, res) => {
     let date = (new Date()).toString();
     let input = req.body + ', ' + date.toString();
     console.log(input)
@@ -109,7 +112,7 @@ recordRoutes.route("/contact").post(async (req, res) => {
     const options = {
         from: process.env["usr"],
         to: process.env["usr_receiving"],
-        subject: "(LIGHTPMS) Contact Form Filled",
+        subject: "(LIGHTPMS) ContactForm Form Filled",
         text: input
     }
     transporter.sendMail(options, (err, info) => {
