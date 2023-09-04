@@ -97,7 +97,7 @@ function Signup() {
         let data: {[key: string]: any} = {};
         // creates a post call to url -> our db is listening there
         // ie uploads to db
-        await fetch("http://localhost:3009/record/add", {
+        await fetch(window.location.href + "record/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

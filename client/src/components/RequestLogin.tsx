@@ -14,7 +14,7 @@ export default function RequestLogin() {
 
                 <div className={"logo"} style={{margin: '25px 0px 0px'}}>
                     <img src={process.env.PUBLIC_URL + "/logo-black.svg"} alt="Logo"/>
-                    <h1 style={{color: "#000"}}>LightPMS</h1>
+                    <h1 style={{color: "#000"}}>lightPM</h1>
                 </div>
             </div>
         </>

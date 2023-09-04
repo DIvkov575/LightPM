@@ -29,7 +29,7 @@ const LinkProperty: React.FC<nameProp>= (Props) => {
 const NewListing = () => {
     let data = {email: sessionStorage.getItem('email') as string, pass: sessionStorage.getItem('pass') as string}
     const submit = (data: FieldValues) => {
-            fetch("http://localhost:3009/newListing", {
+            fetch( window.location.href + "newListing", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

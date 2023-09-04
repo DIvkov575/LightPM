@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
         <div id={"wrapper"}>
             <Link to={""} id={"logo"}>︎
                 <img src={process.env.PUBLIC_URL + "/logo-white.svg"} alt="Logo"/>
-                <h1>LightPMS</h1>
+                <h1>lightPM</h1>
             </Link>
             <Link className={"b2"} style={{color: "#505050", border: "3px solid #505050"}} to={"Login"}>Login</Link>
             <Link className={"b2"} style={{color: "#505050", border: "3px solid #505050"}} to={"Signup"}>Signup</Link>

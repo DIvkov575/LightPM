@@ -9,7 +9,7 @@ const submit = async (data: FieldValues) => {
     console.log(data.values)
 
     await fetch(
-        "http://localhost:3009/contact", {
+        window.location.href + "contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

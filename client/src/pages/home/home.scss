@@ -69,11 +69,21 @@ h3 {
   }
 }
 
-#d3-wrapper {
-  background-color: #707070;
-  margin-bottom: 0px;
-  margin-top: 125px;
-  padding: 40px 0px 50px;
+#d3 {
+  transition: background-color 0.5s ease;
+  margin: 125px auto;
+  //margin: 125px 25px 25px 25px;
+  width: 75%;
+  min-width: 400px;
+  max-width: 1200px;
+  padding: 40px 25px 50px 25px;
+  border-radius: 25px;
+  //border: 3px solid black;
+  @media (max-width: 530px) {
+    border: none;
+    margin: 125px 0 0 0;
+    border-radius: 0px;
+  }
   @keyframes enlarge{
     from {
       width:300px;
@@ -85,39 +95,49 @@ h3 {
       box-shadow: 0px 5px 7px 0px rgba(5,5,5,0.5);
     }
   }
-  .d3 {
-    color: black !important;
-    border: 4px solid grey;
-    border-radius: 30px;
-    width: 300px;
-    height:300px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    margin:10px;
-    position: relative;
-    button {
+  #d3-comp-wrapper {
+    .d3-comp {
+      color: black !important;
+      border: 4px solid grey;
+      border-radius: 30px;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
       position: relative;
-      bottom: -15px;
-      width: 125px;
-      text-decoration: none !important;
-      &:visited {
+
+      .funky-button {
+        position: relative;
+        bottom: -15px;
+        height: 27px;
+        width: 125px;
         text-decoration: none !important;
+        margin-bottom: 30px;
+        text-align: center;
+        padding-top: 5px;
+        &:visited {
+          text-decoration: none !important;
+        }
       }
-    }
-    h2 {
-      position: absolute;
-    }
-    &:hover {
-      width: 302px;
-      height:302px;
-      animation: enlarge 0.1s;
-      box-shadow: 0px 5px 7px 0px rgba(5,5,5,0.5);
-    }
-    &:active {
-      box-shadow: none;
-      color: black;
+
+      h2 {
+        position: absolute;
+      }
+
+      &:hover {
+        width: 302px;
+        height: 302px;
+        animation: enlarge 0.1s;
+        box-shadow: 0px 5px 7px 0px rgba(5, 5, 5, 0.5);
+      }
+
+      &:active {
+        box-shadow: none;
+        color: black;
+      }
     }
   }
 }
@@ -161,4 +181,5 @@ h3 {
 .just-for-centering {
   display: flex;
   justify-content: center;
+  flex-flow: row wrap;
 }

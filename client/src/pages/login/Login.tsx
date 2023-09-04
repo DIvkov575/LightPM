@@ -55,7 +55,7 @@ function Login() {
 
         console.log(user);
         await fetch(
-            "http://localhost:3009/record/verifyLogin", {
+            window.location.href + "record/verifyLogin", {
                 method: "POST",
                 headers: {"Content-Type": "application/json",},
                 body: JSON.stringify(user),

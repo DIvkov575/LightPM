@@ -112,7 +112,7 @@ recordRoutes.route("/contactPage").post(async (req, res) => {
     const options = {
         from: process.env["usr"],
         to: process.env["usr_receiving"],
-        subject: "(LIGHTPMS) ContactForm Form Filled",
+        subject: "(lightPM) ContactForm Form Filled",
         text: input
     }
     transporter.sendMail(options, (err, info) => {
