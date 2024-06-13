@@ -7,52 +7,13 @@ input {
   background-color: vars.$white1;
 }
 
-#profile {
-  button {
-    font-size:50px;
-
-  }
-}
-.stdBox {
-  height: vars.$std_h1;
-  width: vars.$std_w1;
-  //flex-grow:1;
-  //min-width: 175px;
-  //max-width:225px;
-  margin: 5px;
-  padding:10px;
-  border-radius: 5px;
-  border: 1px solid black;
-  background-color: white;
-}
-
-.wrapper {
-  margin: 10px;
-  border: 1px solid black;
-  background-color: #dddddd;
-  padding:10px;
-}
-
-.propertiesWrapper {
-  @extend .wrapper;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  #newProperty {
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    font-size:100px;
-    background-color: vars.$blue1;
-  }
-}
 #request-login-wrapper {
   max-width: 800px;
   border-radius: 15px;
   width:90%;
   margin:50px auto;
   border: 4px solid black;
-  background: linear-gradient(45deg, #303030, #505050);
+  background-color: #505050;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -64,4 +25,78 @@ input {
     border: 4px solid black;
   }
 }
+
+#utils {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40px;
+  width: 400px;
+  border-radius: 25px;
+  background-color: #dddddd;
+  margin: 25px;
+  position:absolute;
+  .b2-1 {
+    font-size: 15px;
+    height: 25px;
+    width: 100px;
+    margin: 5px;
+  }
+}
+
+#propertiesWrapper {
+  //border: 2px solid black;
+  border-radius: 15px;
+  padding: 10px 10px 20px 10px;
+  margin: 25px;
+  background-color: #dddddd;
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+  #properties-alignment{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+    position: relative;
+    .stdBox {
+      height: 80px;
+      flex-grow: 1;
+      margin: 5px;
+      padding:10px;
+      border-radius: 15px;
+      border: 2px solid black;
+      background-color: white;
+    }
+  }
+  .funkyButton {
+    width:135px;
+    height:25px;
+    text-align: center;
+    padding-top:4px;
+    border: 3px solid black;
+    color: black;
+    background: white !important;
+    border-radius: 25px;
+    font-weight: 800;
+    margin: 5px 5px auto;
+    box-shadow: 0px 1px 3px 0px rgba(5,5,5,0.5);
+    &:hover {
+      //color: white;
+      background:black;
+      box-shadow: 0px 3px 5px 0px rgba(5,5,5,0.5);
+      transform: translateY(-0.75px);
+    }
+    &:active{
+      transform: none;
+      box-shadow: none;
+    }
+
+  }
+}
+
+
 

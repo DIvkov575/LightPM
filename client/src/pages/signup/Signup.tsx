@@ -2,6 +2,7 @@ import './signup.scss';
 import React, {useState} from 'react';
 import {md5} from 'hash-wasm';
 import Navbar from "../../components/navbar/Navbar";
+import {Link} from "react-router-dom";
 
 
 // function Signup_2() {
@@ -96,7 +97,7 @@ function Signup() {
         let data: {[key: string]: any} = {};
         // creates a post call to url -> our db is listening there
         // ie uploads to db
-        await fetch("http://localhost:3009/record/add", {
+        await fetch(window.location.href + "record/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -144,12 +145,7 @@ function Signup() {
                 <button onClick={submit}>Signup</button>
                 <div>
                     <p>Already have an account?</p>
-                    <a
-                        className="App-link"
-                        href={window.location.origin + "/login"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Login</a>
+                    <Link to={"/Login"}>Login</Link>
                 </div>
             </div>
         </>

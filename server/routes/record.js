@@ -4,13 +4,26 @@ const recordRoutes = express.Router();
 const dbo = require("../db/conn");
 const emailValidator = require('deep-email-validator');
 const ObjectId = require("mongodb").ObjectId;
+const nodemailer = require("nodemailer");
 
+
+
+const transporter = nodemailer.createTransport({
+    service: 'hotmail',
+    auth: {
+        user: process.env["usr"],
+        pass: process.env["pass"],
+    },
+})
 
 async function isEmailValid(email) {
     return emailValidator.validate({email: email, validateSMTP: false})
 }
 
 
+recordRoutes.route("/newListing").post(async (req, response) => {
+    response.send({message: "invalid user status"})
+});
 // create a new account
 recordRoutes.route("/record/add").post(async (req, response) => {
     let db_connect = dbo.getDb();
@@ -35,6 +48,7 @@ recordRoutes.route("/record/add").post(async (req, response) => {
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
+            status: 0,
             content: {
                 AirbnbEmail: "",
                 AirbnbPass: "",
@@ -89,5 +103,25 @@ recordRoutes.route("/listing/getData").post(async (req, res) => {
 
 })
 
+// handle contactPage form submission
+recordRoutes.route("/contactPage").post(async (req, res) => {
+    let date = (new Date()).toString();
+    let input = req.body + ', ' + date.toString();
+    console.log(input)
+
+    const options = {
+        from: process.env["usr"],
+        to: process.env["usr_receiving"],
+        subject: "(lightPM) ContactForm Form Filled",
+        text: input
+    }
+    transporter.sendMail(options, (err, info) => {
+        if (err) {console.log(err.message); return;}
+    })
+})
+// Serve Website
+recordRoutes.route("/").get((req, res) => {
+    res.sendFile(__dirname + '../../client/build/index.html')
+})
 
 module.exports = recordRoutes;
