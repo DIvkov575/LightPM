@@ -5,7 +5,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const dbo = require("./db/conn");
 require("dotenv").config({ path: "./config.env" });
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static("../client/build"))

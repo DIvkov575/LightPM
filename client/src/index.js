@@ -22,10 +22,12 @@ root.render(
         <Routes>
             <Route path={"/"} element={<Home />}/>
             <Route path={"/signup"} element={<Signup/>}/>
-            <Route path={"/login"} element={<Login />}/>
-            <Route path={"/profile"} element={<Profile/>}/>
-            {/*<Route path={"/auth/resetPass"} element={<ResetPassword />}/>*/}
+            <Route path={"/Login"} element={<Login />}/>
             <Route path={"/Contact"} element={<ContactPage/>}/>
+            {/*<Route path={"/auth/resetPass"} element={<ResetPassword />}/>*/}
+
+            {/*profile*/}
+            <Route path={"/profile"} element={<Profile/>}/>
             <Route path={"/newListing"} element={<NewListing/>}/>
             <Route path={"/allListings"} element={<AllListings/>}/>
             <Route path={"/settings"} element={<SettingsPage/>}/>

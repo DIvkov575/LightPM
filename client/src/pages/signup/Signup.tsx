@@ -4,47 +4,6 @@ import {md5} from 'hash-wasm';
 import Navbar from "../../components/navbar/Navbar";
 import {Link} from "react-router-dom";
 
-
-// function Signup_2() {
-//     const [formState, setFormState] = useState({
-//         email1: '',
-//         password1_1: '',
-//         password1_2: '',
-//         email2: '',
-//         password2_1: '',
-//         password2_2: '',
-//     })
-//    const handleFormChange = (e) => {
-//         const {email1, password1_1, password1_2, email2, password2_1, password2_2} = e.target;
-//         setFormState({
-//             email1, password1_1, password1_2, email2, password2_1, password2_2
-//         })
-//    }
-//
-//     async function submit(e) {
-//         e.preventDefault();
-//     }
-//
-//
-//     return (
-//         <div>
-//             <form onSubmit={submit}>
-//                 <h5>Link Airbnb Account</h5>
-//                 <input type="email" id="email1" placeholder="email" required onChange={handleFormChange}></input>
-//                 <input type="password" id="password1_1" placeholder="password" required onChange={handleFormChange}></input>
-//                 <input type="password" id="password1_2" placeholder="confirm password" required onChange={handleFormChange}></input>
-//
-//                 <h5>Link Vrbo Account</h5>
-//                 <input type="email" id="email2" placeholder="email" required onChange={handleFormChange}></input>
-//                 <input type="password" id="password2_1" placeholder="password" required onChange={handleFormChange}></input>
-//                 <input type="password" id="password2_2" placeholder="confirm password" required onChange={handleFormChange}></input>
-//
-//                 <label>Agree with <a href="">terms and conditions</a></label><input type={"checkbox"}></input>
-//                 <button type={"submit"}>Continue</button>
-//             </form>
-//         </div>
-//     )
-// }
 function Signup() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -77,10 +36,6 @@ function Signup() {
             alert("password must be more than 7 character long");
             return;
         }
-        // } else if (password2.length <= 1) {
-        //     alert("password must be more than 1 character long");
-        //     return;
-        // }
 
         if (password1 !== password2) {
         alert("passwords do not match"); return;
@@ -97,7 +52,7 @@ function Signup() {
         let data: {[key: string]: any} = {};
         // creates a post call to url -> our db is listening there
         // ie uploads to db
-        await fetch(window.location.href + "record/add", {
+        await fetch(window.location.hostname + "/record/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -119,8 +74,8 @@ function Signup() {
                 return;
             }
         } else {
-            alert("Successfully created account")
-            window.open("login")
+            // alert("Successfully created account")
+            window.open("login", "_self")
         }
     }
 

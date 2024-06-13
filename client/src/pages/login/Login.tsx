@@ -1,4 +1,5 @@
 import './login.scss';
+import './login.scss';
 import React, {useState} from 'react';
 import {md5} from 'hash-wasm';
 import Navbar from "../../components/navbar/Navbar";

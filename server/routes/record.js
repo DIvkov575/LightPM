@@ -24,6 +24,7 @@ async function isEmailValid(email) {
 recordRoutes.route("/newListing").post(async (req, response) => {
     response.send({message: "invalid user status"})
 });
+
 // create a new account
 recordRoutes.route("/record/add").post(async (req, response) => {
     let db_connect = dbo.getDb();
@@ -104,7 +105,7 @@ recordRoutes.route("/listing/getData").post(async (req, res) => {
 })
 
 // handle contactPage form submission
-recordRoutes.route("/contactPage").post(async (req, res) => {
+recordRoutes.route("/Contact").post(async (req, res) => {
     let date = (new Date()).toString();
     let input = req.body + ', ' + date.toString();
     console.log(input)
@@ -119,8 +120,12 @@ recordRoutes.route("/contactPage").post(async (req, res) => {
         if (err) {console.log(err.message); return;}
     })
 })
+
 // Serve Website
 recordRoutes.route("/").get((req, res) => {
+    res.sendFile(__dirname + '../../client/build/index.html')
+})
+recordRoutes.route("/Login").get((req, res) => {
     res.sendFile(__dirname + '../../client/build/index.html')
 })
 
