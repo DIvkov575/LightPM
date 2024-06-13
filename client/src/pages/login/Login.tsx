@@ -40,59 +40,60 @@ function Login() {
 
     // await md5 w/ import above used to get md5 hash of passowrd
     async function submit(e: React.MouseEvent<HTMLButtonElement>) {
-        e.preventDefault();
-        // let user_data;
-        let user_data: { [key: string]: any } = {email: "", password: ""};
-        // gets data from inputs
-        let user = {
-            email: email,
-            password: await md5(password),
-        }
-
-        if (!authenticateEmail1(user)) {
-            alert("Invalid Login");
-            return;
-        }
-
-        console.log(user);
-        await fetch(
-            window.location.href + "record/verifyLogin", {
-                method: "POST",
-                headers: {"Content-Type": "application/json",},
-                body: JSON.stringify(user),
-            })
-            .then(response => response.json())
-            .then(jsonData => {
-                console.log(jsonData);
-                user_data = jsonData;
-            })
-            .catch(error => {
-                window.alert(error);
-            });
-
-        if (user_data.hasOwnProperty("errorMessage")) {
-            if (user_data['errorMessage'] === "email not found") {
-                alert("Email Not Found");
-                return;
-            } else if (user_data['errorMessage'] === "incorrect password") {
-                alert("Incorrect Password");
-                return;
-            } else if (user_data['errorMessage'] === "unknown error has occurred") {
-                alert("unknown error has occurred");
-                return;
-            } else {
-                alert("unknown error")
-                return;
-            }
-        } else {
-            sessionStorage.setItem('email', user_data['email']);
-            sessionStorage.setItem('pass', password);
-            sessionStorage.setItem('name', user_data['name']);
-            sessionStorage.setItem('content', JSON.stringify(user_data['content']));
-            sessionStorage.setItem('properties', JSON.stringify(user_data['properties']));
-
-            window.open("profile", "_self")
-        }
+        window.alert("backend has been disabled - LightPM is no longer conducting business")
+    //     e.preventDefault();
+    //     // let user_data;
+    //     let user_data: { [key: string]: any } = {email: "", password: ""};
+    //     // gets data from inputs
+    //     let user = {
+    //         email: email,
+    //         password: await md5(password),
+    //     }
+    //
+    //     if (!authenticateEmail1(user)) {
+    //         alert("Invalid Login");
+    //         return;
+    //     }
+    //
+    //     console.log(user);
+    //     await fetch(
+    //         window.location.href + "record/verifyLogin", {
+    //             method: "POST",
+    //             headers: {"Content-Type": "application/json",},
+    //             body: JSON.stringify(user),
+    //         })
+    //         .then(response => response.json())
+    //         .then(jsonData => {
+    //             console.log(jsonData);
+    //             user_data = jsonData;
+    //         })
+    //         .catch(error => {
+    //             window.alert(error);
+    //         });
+    //
+    //     if (user_data.hasOwnProperty("errorMessage")) {
+    //         if (user_data['errorMessage'] === "email not found") {
+    //             alert("Email Not Found");
+    //             return;
+    //         } else if (user_data['errorMessage'] === "incorrect password") {
+    //             alert("Incorrect Password");
+    //             return;
+    //         } else if (user_data['errorMessage'] === "unknown error has occurred") {
+    //             alert("unknown error has occurred");
+    //             return;
+    //         } else {
+    //             alert("unknown error")
+    //             return;
+    //         }
+    //     } else {
+    //         sessionStorage.setItem('email', user_data['email']);
+    //         sessionStorage.setItem('pass', password);
+    //         sessionStorage.setItem('name', user_data['name']);
+    //         sessionStorage.setItem('content', JSON.stringify(user_data['content']));
+    //         sessionStorage.setItem('properties', JSON.stringify(user_data['properties']));
+    //
+    //         window.open("profile", "_self")
+    //     }
 
     }
 

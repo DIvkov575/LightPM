@@ -25,58 +25,59 @@ function Signup() {
 
     async function submit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        if (name.length <= 1) {
-            alert("Name must be more than 1 character long");
-            return;
-        } else if (email.length <= 1) {
-            alert("email must be more than 1 character long");
-            return;
-        }
-        if (password2.length <= 7) {
-            alert("password must be more than 7 character long");
-            return;
-        }
-
-        if (password1 !== password2) {
-        alert("passwords do not match"); return;
-        }
-
-        // creates object to be stringified
-        // TODO: hash password before upload
-        let newUser = {
-            name: name,
-            email: email,
-            password: await md5(password1),
-        }
-
-        let data: {[key: string]: any} = {};
-        // creates a post call to url -> our db is listening there
-        // ie uploads to db
-        await fetch(window.location.hostname + "/record/add", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newUser),
-        }).then(async (_response) => {
-            data = await _response.json()
-        }).catch(error => {
-            window.alert(error);
-            return;
-        })
-
-        if (data.hasOwnProperty("errorMessage")) {
-            if (data['errorMessage'] === "email exists") {
-                alert("email exists");
-                return;
-            } else if (data['errorMessage'] === "email invalid") {
-                alert("email invalid");
-                return;
-            }
-        } else {
-            // alert("Successfully created account")
-            window.open("login", "_self")
-        }
+        window.alert("backend has been disabled - LightPM is no longer conducting business");
+        // if (name.length <= 1) {
+        //     alert("Name must be more than 1 character long");
+        //     return;
+        // } else if (email.length <= 1) {
+        //     alert("email must be more than 1 character long");
+        //     return;
+        // }
+        // if (password2.length <= 7) {
+        //     alert("password must be more than 7 character long");
+        //     return;
+        // }
+        //
+        // if (password1 !== password2) {
+        // alert("passwords do not match"); return;
+        // }
+        //
+        // // creates object to be stringified
+        // // TODO: hash password before upload
+        // let newUser = {
+        //     name: name,
+        //     email: email,
+        //     password: await md5(password1),
+        // }
+        //
+        // let data: {[key: string]: any} = {};
+        // // creates a post call to url -> our db is listening there
+        // // ie uploads to db
+        // await fetch(window.location.hostname + "/record/add", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(newUser),
+        // }).then(async (_response) => {
+        //     data = await _response.json()
+        // }).catch(error => {
+        //     window.alert(error);
+        //     return;
+        // })
+        //
+        // if (data.hasOwnProperty("errorMessage")) {
+        //     if (data['errorMessage'] === "email exists") {
+        //         alert("email exists");
+        //         return;
+        //     } else if (data['errorMessage'] === "email invalid") {
+        //         alert("email invalid");
+        //         return;
+        //     }
+        // } else {
+        //     // alert("Successfully created account")
+        //     window.open("login", "_self")
+        // }
     }
 
 

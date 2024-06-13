@@ -1,0 +1,9 @@
+server/apis/
+server/node_modules/
+server/tsconfig.json
+
+client/.gitignore
+.git/
+.gitignore
+**/.DS_STORE
+.idea/

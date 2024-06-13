@@ -1,0 +1,45 @@
+@use '../../vars';
+
+html {
+}
+
+.contact-form {
+  margin: 50px auto 50px auto;
+  display:flex;
+  flex-flow: column;
+  align-items: flex-start;
+  max-width:1200px;
+  border-radius: 15px;
+  background: rgba(50, 50, 50, 0.75);
+  padding: 20px;
+  h3 {
+    color: vars.$white1;
+    font-size: 60px;
+    @media (max-width: 500px) {
+      margin: 10px auto auto;
+    }
+  }
+  input {
+    margin:10px;
+    height:35px;
+    background-color: vars.$white1;
+    color: vars.$black1;
+    border-radius: 15px !important;
+    width: calc(100% - 40px);
+    &::placeholder {
+      color: vars.$black1;
+    }
+  }
+  input:nth-child(4) {
+    height: 60px !important;
+
+  }
+  button {
+    @extend .b2;
+    height: 40px;
+    width: 200px;
+    margin: 10px 10px 25px;
+    border-radius: 15px;
+    background-color: vars.$white1;
+  }
+}
