@@ -16,9 +16,11 @@ const Home = () => {
 
     return (
         <div id="home">
-            <div id={"welcome-block"}>
+            <div id={"navbar-wrapper"}>
                 <Navbar/>
-                <div style={{marginTop: "75px", paddingBottom: "100px"}}>
+            </div>
+            <div id={"welcome-block"}>
+                <div id={"welcome-block-inner"} style={{paddingBottom: "100px"}}>
                     <h1 className={"heading-1"}>Find peace of Mind</h1>
                     <h1 className={"heading-2"}>lightPM</h1>
                     <div style={{marginTop: "25px"}} className={"just-for-centering"}>
@@ -56,7 +58,7 @@ const Home = () => {
                             <img style={{width: "200px", margin: "0 auto"}}
                                  src={process.env.PUBLIC_URL + "/home-icon.png"} alt="Home Icon"/>
                             <h2 style={{top: "175px"}}>{"≤ 10 properties"}</h2>
-                            <h2 style={{top: "205px"}}>$10/property/month</h2>
+                            <h2 id={'uid1'} style={{top: "205px"}}>$10/property/month</h2>
                             <div className={"b2 funky-button"}>Register</div>
 
                         </div>

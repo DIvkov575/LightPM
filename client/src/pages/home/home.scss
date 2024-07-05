@@ -19,7 +19,8 @@ $tc-4: #ec3056;
 }
 
 html {
-  padding: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 h1 {
@@ -34,12 +35,14 @@ h3 {
 
 
 #home {
-  padding-top: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 #welcome-block {
-  margin-top: 0px;
+  margin-top: 0;
   background-color: black;
+  width: 100%;
 }
 
 #d2 {
@@ -72,13 +75,10 @@ h3 {
 #d3 {
   transition: background-color 0.5s ease;
   margin: 125px auto;
-  //margin: 125px 25px 25px 25px;
   width: 75%;
-  min-width: 400px;
   max-width: 1200px;
   padding: 40px 25px 50px 25px;
   border-radius: 25px;
-  //border: 3px solid black;
   @media (max-width: 530px) {
     border: none;
     margin: 125px 0 0 0;
@@ -157,7 +157,7 @@ h3 {
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.04em;
-  font-size: 81px;
+  font-size: 5rem;
 }
 
 .heading-2 {
@@ -179,4 +179,54 @@ h3 {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
+}
+
+
+@media (max-width: 400px) {
+  #navbar-wrapper {
+    display: none !important;
+  }
+  #welcome-block-inner {
+    margin-top: 0 !important;
+    padding-top: 100px !important;
+  }
+  .heading-1 {
+    display: none;
+  }
+  .heading-2 {
+    font-size: 5.5rem;
+  }
+  .b1 {
+    width: 115px !important;
+    height: 40px !important;
+    font-size: 1rem !important;
+  }
+  #d2 {
+    height: auto;
+    padding: 0.5rem;
+    margin: 2rem auto 1rem auto;
+  }
+  #d3 {
+    padding: 0;
+    margin: 2rem auto 2rem auto;
+
+    #d3-comp-wrapper {
+      margin: auto;
+      .d3-comp{
+        border-radius: 20px;
+        width: 15rem !important;
+        height: 6rem !important;
+        h2 {
+          top: 0.25rem !important;
+          font-size: 1.5rem !important;
+        }
+        #uid1 { display: none; }
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+
+
 }
