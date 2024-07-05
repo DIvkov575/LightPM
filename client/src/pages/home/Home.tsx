@@ -3,16 +3,12 @@ import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
 import {Link} from "react-router-dom";
 import ContactForm from "../../components/ContactForm/ContactForm";
-import React, {useEffect, useRef, useState} from "react";
-import {useIsInViewport} from "./lib";
+import React, {useRef, useState} from "react";
 
 const Home = () => {
     const [bgcolor, setBgcolor] = useState("#eee");
     const [color, setColor] = useState("Black");
     const ref1 = useRef(null);
-    const isInViewport1 = useIsInViewport(ref1);
-
-
 
     return (
         <div id="home">
@@ -36,7 +32,6 @@ const Home = () => {
                 <h2>Aggregate Notifications from all platforms</h2>
                 <h2>Easily import listings</h2>
                 <div id={"airbnb-vrbo-wrapper"}>
-                    {/*<h2 style={{margin: "0px", marginTop: "10px"}}><u>Compatible With</u></h2>*/}
                     <h2 style={{margin: "0px", marginTop: "10px"}}>Compatible With</h2>
                     <div style={{
                         position: "absolute",
