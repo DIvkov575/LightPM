@@ -45,3 +45,9 @@ html {
         }
     }
 }
+
+@media (max-width: 400px) {
+  #login-form {
+    margin: 1rem;
+  }
+}

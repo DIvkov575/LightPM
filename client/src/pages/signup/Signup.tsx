@@ -83,7 +83,9 @@ function Signup() {
 
     return (
         <>
-            <Navbar/>
+            <div id={"navbar-wrapper"}>
+                <Navbar/>
+            </div>
             <div id="signup-form">
                 <h4>Sign Up</h4>
                 <input type="text" id="name" placeholder="Full Name" required onChange={(e) => {

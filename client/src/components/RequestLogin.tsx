@@ -5,9 +5,11 @@ import React from "react";
 export default function RequestLogin() {
     return (
         <>
-            <Navbar/>
-            <div id={"request-login-wrapper"}>
-                <h1>Please Login before proceeding to Profile</h1>
+            <div id={"navbar-wrapper"}>
+                <Navbar/>
+            </div>
+             <div id={"request-login-wrapper"}>
+                <h1>Please login before proceeding to Profile</h1>
                 <Link to={"/login"}>
                     <button id={"redirect-button"}>Login</button>
                 </Link>

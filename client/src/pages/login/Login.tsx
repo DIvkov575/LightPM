@@ -99,7 +99,9 @@ function Login() {
 
     return (
         <>
-            <Navbar/>
+            <div id={"navbar-wrapper"}>
+                <Navbar/>
+            </div>
             <div id="login-form">
                 <h4>Login</h4>
                 <input type="email" id="email" placeholder="Email" required onChange={(e) => {
