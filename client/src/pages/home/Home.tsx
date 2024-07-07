@@ -76,11 +76,8 @@ const Home = () => {
             <div id={"d4"}>
                 <h1 className={"heading-2"}>About Us</h1>
                 <div id={"d4-wrapper"}>
-                    <h2>lightPM was founded and is currently run by two passionate technical founders in boston. Our
-                        small team should assure you that you will get the utmost attention with fast and reliable
-                        responses</h2>
-                    <h2>lightPM is still a very young product and has limited features. However we assure you that our
-                        reservation synchronization and notification aggregation will be of the highest quality.</h2>
+                    <h2>lightPM is run by two technical founders out of Boston, MA. Our
+                        small team should assure you of the fastest and highest-quality support, should you need it.</h2>
                 </div>
                 <ContactForm/>
 
